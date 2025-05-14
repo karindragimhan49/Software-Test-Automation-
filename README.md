@@ -63,13 +63,31 @@ python tc03_valid_checkout.py
 
 ## 🖼️ Sample Screenshots
 
-Below are sample screenshots from successful test runs:
+Below are screenshots from all test runs:
 
-### ✅ Valid Login Test
-![Valid Login Test](screenshots/tc01_valid_login.png)
+### ✅ Valid Login
+![Login Success](screenshots/tc01_valid_login.png)
 
-### ✅ Valid Checkout Test
-![Valid Checkout Test](screenshots/tc03_valid_checkout.png)
+### ❌ Invalid Login
+![Login Error](screenshots/tc02_invalid_login_error.png)
+
+### ✅ Valid Checkout
+![Checkout Success](screenshots/tc03_valid_checkout.png)
+
+### ❌ Invalid Checkout
+![Checkout Error](screenshots/tc04_invalid_checkout_error.png)
+
+### ✅ Valid Cart
+![Cart Test](screenshots/tc05_valid_cart.png)
+
+### ❌ Invalid Cart
+![Cart Error](screenshots/tc06_invalid_cart_error.png)
+
+### ✅ UI Elements Check
+![UI Elements Pass](screenshots/tc07_valid_ui_elements.png)
+
+### ❌ Invalid UI Elements Check
+![UI Elements Fail](screenshots/tc08_invalid_ui_elements_error.png)
 
 ## 🧠 Technologies Used
 * 🐍 Python 3.12
