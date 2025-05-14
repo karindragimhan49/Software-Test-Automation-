@@ -1,15 +1,16 @@
 from selenium import webdriver
-from selenium.webdriver.chrome.service import Service
-from selenium.webdriver.chrome.options import Options
 import os
 
-def get_driver():
-    chrome_options = Options()
-    chrome_options.add_argument("--start-maximized")
-    chrome_options.add_argument("--disable-notifications")
+def create_chrome_driver():
+    options = webdriver.ChromeOptions()
+    options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_experimental_option("excludeSwitches", ["enable-automation"])
+    options.add_experimental_option("useAutomationExtension", False)
+    options.add_argument("--disable-notifications")
+    options.add_argument("--disable-infobars")
+    options.add_argument("--disable-save-password-bubble")
+    options.add_argument("--start-maximized")
 
-    chromedriver_path = os.path.join(os.getcwd(), "chromedriver")
-    service = Service(chromedriver_path)
-
-    driver = webdriver.Chrome(service=service, options=chrome_options)
-    return driver
+    # Explicitly set the path to chromedriver if needed
+    chromedriver_path = os.path.join(os.getcwd(), "chromedriver.exe")
+    return webdriver.Chrome(executable_path=chromedriver_path, options=options)
