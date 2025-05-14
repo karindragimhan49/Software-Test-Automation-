@@ -93,10 +93,6 @@ Below are screenshots from all test runs:
 * 🧪 Automated UI Testing
 * 🖥️ Chrome + ChromeDriver
 
-## 👤 Author
-**Karindragi Mahan**  
-SE3010 - Assignment 02 - Part B  
-GitHub: karindragimhan49
 
 ## 📄 License
 This project is for academic and learning purposes only.
