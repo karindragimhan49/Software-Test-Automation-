@@ -1,4 +1,5 @@
 from selenium import webdriver
+from selenium.webdriver.chrome.service import Service
 import os
 
 def create_chrome_driver():
@@ -11,6 +12,8 @@ def create_chrome_driver():
     options.add_argument("--disable-save-password-bubble")
     options.add_argument("--start-maximized")
 
-    # Explicitly set the path to chromedriver if needed
+    # Path to chromedriver.exe in current folder
     chromedriver_path = os.path.join(os.getcwd(), "chromedriver.exe")
-    return webdriver.Chrome(executable_path=chromedriver_path, options=options)
+    service = Service(executable_path=chromedriver_path)
+
+    return webdriver.Chrome(service=service, options=options)

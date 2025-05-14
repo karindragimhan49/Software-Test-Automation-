@@ -1,8 +1,9 @@
 from selenium.webdriver.common.by import By
+from driver_setup import create_chrome_driver
 import time
 import os
 
-from driver_setup import create_chrome_driver
+driver = None  # declare driver here so it's accessible in finally
 
 try:
     os.makedirs("screenshots", exist_ok=True)
@@ -14,18 +15,18 @@ try:
     driver.find_element(By.ID, "password").send_keys("secret_sauce")
     driver.find_element(By.ID, "login-button").click()
 
-    time.sleep(2)  # Wait for page to load
+    time.sleep(2)
 
-    # Check if login was successful
     assert "Products" in driver.page_source
     print(" TC01 - Valid Login Test Passed")
-
     driver.save_screenshot("screenshots/tc01_valid_login.png")
 
 except Exception as e:
     print(" TC01 - Valid Login Test Failed")
     print("Error:", e)
-    driver.save_screenshot("screenshots/tc01_valid_login_error.png")
+    if driver:
+        driver.save_screenshot("screenshots/tc01_valid_login_error.png")
 
 finally:
-    driver.quit()
+    if driver:
+        driver.quit()
